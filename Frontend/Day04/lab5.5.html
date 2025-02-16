@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Pyramid</title>
+    <script>
+        function generateNumbers() {
+            let output = "";
+            for (let i = 0; i < 15; i++) {
+                for (let j = 0; j <= i; j++) {
+                    output += j;
+                }
+                output += "<br>";
+            }
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</head>
+<body onload="generateNumbers()">
+    <h1>Dãy Số</h1>
+    <div id="result" style="font-family: monospace;"></div>
+</body>
+</html>

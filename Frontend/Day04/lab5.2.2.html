@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính tổng số lẻ và chẵn</title>
+</head>
+<body>
+    <div>
+        <h2>Tính tổng số chẵn và lẻ</h2>
+        <Label for="number">Nhập số có 2 chữ số:</Label>
+        <input type="number" id="number" placeholder="Nhập số nguyên" >
+        <button onclick="tinhtong()">Giải</button>
+        <P id="result"></P>
+    </div>
+    <script>
+        function tinhtong(){
+            var number = document.getElementById("number").value;
+            var tongle = tongchan = 0;
+            var sole = [];
+            var sochan = [];
+            for(var i=1;i<=number;i++){
+                if(i%2 != 0){
+                    sole.push(i);
+                    tongle +=i;
+                }
+            }
+            for(var i=1;i<=number;i++){
+                if(i%2==0){
+                    sochan.push(i);
+                    tongchan +=i;
+                }
+            }
+            var resultText = `
+            Các số lẻ từ 1 đến ${number} là: ${sole.join(", ")}<br/>
+            Các số chẵn từ 2 đến ${number} là: ${sochan.join(", ")}<br/>
+            Tổng các số lẻ: ${tongle}<br/>
+            Tổng các số chẵn: ${tongchan}
+        `   ;
+
+            document.getElementById("result").innerHTML = resultText;
+
+        }
+    </script>
+</body>
+</html>

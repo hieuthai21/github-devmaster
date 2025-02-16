@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy tính</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .calculator {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            height: 50px;
+            font-size: 1.5em;
+            text-align: right;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+        table {
+            width: 100%;
+        }
+        td {
+            padding: 5px;
+        }
+        input[type="button"] {
+            width: 100%;
+            height: 50px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        input[type="button"]:hover {
+            opacity: 0.7;
+        }
+        .number { background: #e0e0e0; }
+        .operator { background: #ff9800; color: white; }
+        .equals { background: #4caf50; color: white; }
+        .clear { background: #f44336; color: white; }
+    </style>
+    <script>
+        var number = "";
+        var pheptinh = "";
+
+        function getValue(val) {
+            let num = document.getElementById("number").value;
+            document.getElementById("number").value = num + val;
+        }
+
+        function setPhepToan(val) {
+            number = document.getElementById("number").value;
+            document.getElementById("number").value = "";
+            pheptinh = val;
+        }
+
+        function ketqua() {
+            let ketquaTinh = 0;
+            let currentNumber = document.getElementById("number").value;
+            
+            switch (pheptinh) {
+                case "+":
+                    ketquaTinh = parseFloat(number) + parseFloat(currentNumber);
+                    break;
+                case "-":
+                    ketquaTinh = parseFloat(number) - parseFloat(currentNumber);
+                    break;
+                case "*":
+                    ketquaTinh = parseFloat(number) * parseFloat(currentNumber);
+                    break;
+                case "/":
+                    ketquaTinh = currentNumber == "0" ? "Lỗi chia 0" : parseFloat(number) / parseFloat(currentNumber);
+                    break;
+                default:
+                    ketquaTinh = "Lỗi!";
+            }
+
+            document.getElementById("number").value = ketquaTinh;
+        }
+
+        function reset() {
+            number = "";
+            pheptinh = "";
+            document.getElementById("number").value = "";
+        }
+    </script>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="number" readonly>
+        <table>
+            <tr>
+                <td><input type="button" value="1" class="number" onclick="getValue(this.value)"></td>
+                <td><input type="button" value="2" class="number" onclick="getValue(this.value)"></td>
+                <td><input type="button" value="3" class="number" onclick="getValue(this.value)"></td>
+                <td><input type="button" value="+" class="operator" onclick="setPhepToan(this.value)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" class="number" onclick="getValue(this.value)"></td>
+                <td><input type="button" value="5" class="number" onclick="getValue(this.value)"></td>
+                <td><input type="button" value="6" class="number" onclick="getValue(this.value)"></td>
+                <td><input type="button" value="-" class="operator" onclick="setPhepToan(this.value)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" class="number" onclick="getValue(this.value)"></td>
+                <td><input type="button" value="8" class="number" onclick="getValue(this.value)"></td>
+                <td><input type="button" value="9" class="number" onclick="getValue(this.value)"></td>
+                <td><input type="button" value="*" class="operator" onclick="setPhepToan(this.value)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0" class="number" onclick="getValue(this.value)"></td>
+                <td><input type="button" value="AC" class="clear" onclick="reset()"></td>
+                <td><input type="button" value="=" class="equals" onclick="ketqua()"></td>
+                <td><input type="button" value="/" class="operator" onclick="setPhepToan(this.value)"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum</title>
+</head>
+    <script lang="JavaScript">
+        var arr=new Array(5,10,20,40,70,"50a");
+        function tinhtong(mang){
+            var tong=0;
+            for(var i=0;i<mang.length;i++){
+                if(!isNaN(mang[i])){
+                    tong += mang[i];
+                }
+            }
+            return tong;
+        }
+    </script>
+<body>
+    <script>
+        var t=tinhtong(arr);
+        document.write("Tổng giá trị các phần tử: "+t);
+    </script>
+</body>
+</html>

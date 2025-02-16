@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check tuổi</title>
+    <script language="JavaScript">
+        function check() {
+            let name = document.myform.name.value;
+            let age = document.myform.age.value;
+            let result = document.getElementById("result");
+
+            if (name.trim() === "") {
+                alert("Bạn không được để trống tên!");
+                document.myform.name.focus();
+                return;
+            }
+
+            if (age.trim() === "" || isNaN(age)) {
+                alert("Vui lòng nhập tuổi hợp lệ!");
+                document.myform.age.focus();
+                return;
+            }
+
+            if (parseInt(age) < 18) {
+                result.innerHTML = "Bạn không đủ điều kiện, " + name;
+            } else {
+                result.innerHTML = "Bạn đủ điều kiện, " + name;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="myform">
+        <p><h5><i>Nhập tên:</i></h5>
+        <input name="name" type="text" size="35">
+        </p>
+        <p><h5><i>Nhập tuổi:</i></h5>
+        <input name="age" type="text" size="5">
+        </p>
+        <input type="button" value="Check" onclick="check()">
+        <input type="reset" value="Clear">
+    </form>
+    
+    <p id="result" style="color: blue; font-weight: bold;"></p>
+</body>
+</html>

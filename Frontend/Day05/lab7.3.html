@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Day05/lab7.3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        jQuery(document).ready(function($){
+            $("a > img").click(function(event){
+                event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
+                
+                var img = $(this).attr('src'); // Lấy đường dẫn ảnh được click
+                $("#image > img").attr('src', img); // Gán ảnh mới vào khung lớn
+
+                // Xóa class 'actived' khỏi tất cả ảnh, rồi thêm vào ảnh được click
+                $("a > img").removeClass('actived');
+                $(this).addClass('actived');
+            });
+        });
+
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <div id="image">
+            <img src="/img/yone.jpg" alt="" >
+        </div>
+        <div id="thum">
+            <ul>
+                <li><a href="javascript:void(0)">
+                    <img src="/img/ahri.jpg" alt="" class="actived"></a>
+                </li>
+                <li><a href="javascript:void(0)">
+                    <img src="/img/ashe.jpg" alt="" class="actived"></a>
+                </li>
+                <li><a href="javascript:void(0)">
+                    <img src="/img/gwen.jpg" alt="" class="actived"></a>
+                </li>
+                <li><a href="javascript:void(0)">
+                    <img src="/img/sona.jpg" alt="" class="actived"></a>
+                </li>
+                <li><a href="javascript:void(0)">
+                    <img src="/img/miss.jpg" alt="" class="actived"></a>
+                </li>
+                <li><a href="javascript:void(0)">
+                    <img src="/img/morgana.jpg" alt="" class="actived"></a>
+                </li>
+                <li><a href="javascript:void(0)">
+                    <img src="/img/yone.jpg" alt="" class="actived"></a>
+                </li>
+            </ul>
+        </div>
+    </div>   
+</body>
+</html>

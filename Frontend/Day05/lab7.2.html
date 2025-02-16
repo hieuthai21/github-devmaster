@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Day05/lab7.2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("a").click(function(e){  // Sửa lỗi cú pháp
+                e.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
+                var mau = e.target.id; // Lấy id của thẻ <a> được nhấn
+                $("#content").removeClass().addClass(mau); // Xóa class cũ, thêm class mới
+            });
+            $("#btnHide").click(function(){
+                $("#box").hide(); // Ẩn
+            });
+            
+            $("#btnShow").click(function(){
+                $("#box").show(); // Hiện
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="main">
+        <h3>Chọn màu chữ</h3>
+        <ul class="clearfix">
+            <li><a href="javascript:void(0)" id="maudo">Đỏ</a></li>
+            <li><a href="javascript:void(0)" id="mauxanh">Xanh</a></li>
+            <li><a href="javascript:void(0)" id="mauvang">Vàng</a></li>
+            <li><a href="javascript:void(0)" id="maughi">Ghi</a></li>
+            <li><a href="javascript:void(0)" id="mautim">Xám</a></li>
+        </ul>
+    </div>
+    <div id="content">Nội dung thay đổi màu sắc</div>
+    <div id="content">lala</div>
+    <div id="box" style="width:100px; height:100px; background:blue;"></div>
+    <button id="btnHide">Ẩn</button>
+    <button id="btnShow">Hiện</button>
+
+</body>
+</html>

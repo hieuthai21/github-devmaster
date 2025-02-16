@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <script lang="javaScript">
+        function check(){
+            let username = document.myform.username.value.trim();
+            let password = document.myform.password.value.trim();
+            let remember = document.myform.remember.checked;
+            if(username ===""){
+                alert("Bạn không được để trống tên đăng nhập!");
+                document.myform.username.focus();
+                return false;
+            }
+            if(password ===""){
+                alert("Bạn không được để trống mật khẩu!");
+                document.myform.password.focus();
+                return false;
+            }
+            const validusername ="hieuthai";
+            const validpassword ="2211";
+            if (username === validusername && password === validpassword) {
+                if (remember) {
+                    alert("Đăng nhập thành công và thông tin của bạn đã được ghi nhớ!");
+                } else {
+                    alert("Đăng nhập thành công!");
+                }
+            } else {
+                alert("Tên đăng nhập hoặc mật khẩu không đúng!");
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Trang Đăng Nhập </h1>
+    <Form name="myform">
+        <p>Username: <input name="username" type="text" size="35"></p>
+        <p>Password: <input name="password" type="text" size="35"></p>
+        <P><input name="remember" type="checkbox">Remember Set</P>
+        <input type="button" value="Login" onclick="check()">
+        <input type="reset" value="Reset">
+
+    </Form>
+</body>
+</html>

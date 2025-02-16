@@ -1,0 +1,45 @@
+#main{
+    border: solid 1px #ccc;
+    padding: 10px;
+    width: 350px;
+}
+.clearfix{
+    overflow: hidden;
+    clear: both;
+}
+#main ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#main ul li{
+    float: left;
+}
+#main ul li a{
+    display: block;
+    border: solid 1px #ccc;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 5px;
+}
+#content{
+    padding: 50px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.maudo{
+    color: red;
+}
+.mauxanh{
+    color: green;
+}
+.mauvang{
+    color: yellow;
+    background-color: black;
+}
+.maughi{
+    color: #666;
+}
+.mautim{
+    color: violet;
+}
